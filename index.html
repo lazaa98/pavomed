@@ -18,7 +18,7 @@
       --muted: #f1ddb0;
       --shadow: 0 24px 70px rgba(92, 58, 13, 0.14);
     }
-
+ 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -30,7 +30,7 @@
     a { color: inherit; text-decoration: none; }
     button { font: inherit; }
     :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-
+ 
     .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
     .section { padding: 96px 0; }
     .eyebrow {
@@ -42,13 +42,13 @@
       margin-bottom: 14px;
     }
     .eyebrow.light { color: var(--gold); }
-
+ 
     h1, h2, h3 { line-height: .96; letter-spacing: -.045em; }
     h1 { font-size: clamp(48px, 8vw, 92px); max-width: 850px; font-weight: 950; }
     h2 { font-size: clamp(38px, 5vw, 66px); font-weight: 950; }
     h3 { font-size: 26px; font-weight: 950; }
     p { color: var(--brown); }
-
+ 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       min-height: 56px; padding: 15px 26px; border-radius: 18px;
@@ -61,7 +61,7 @@
     .btn-dark:hover { background: #4a2a0d; }
     .btn-ghost { border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.08); color: white; backdrop-filter: blur(12px); }
     .btn-ghost:hover { background: rgba(255,255,255,.15); }
-
+ 
     .hero {
       position: relative; min-height: 100vh; overflow: hidden; color: white;
       background:
@@ -82,7 +82,7 @@
       background-size: 84px 144px; color: white;
     }
     .dark-pattern > * { position: relative; z-index: 1; }
-
+ 
     .nav { position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
     .brand { display: flex; align-items: center; gap: 12px; }
     .logo-box { width: 56px; height: 56px; display: grid; place-items: center; border-radius: 18px; background: var(--gold); box-shadow: 0 14px 32px rgba(0,0,0,.26); }
@@ -95,14 +95,14 @@
     .mobile-menu.open { display: grid; gap: 12px; }
     .mobile-menu a { padding: 12px; color: #f8e5b4; font-weight: 800; border-radius: 14px; }
     .mobile-menu a:hover { background: rgba(255,255,255,.12); }
-
+ 
     .hero-grid { position: relative; z-index: 10; display: grid; grid-template-columns: 1.04fr .96fr; gap: 54px; align-items: center; padding: 72px 0 120px; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; padding: 9px 15px; border: 1px solid rgba(244,185,47,.32); border-radius: 999px; background: rgba(244,185,47,.1); color: #ffe4a1; font-size: 14px; font-weight: 850; }
     .hero-text { margin-top: 28px; max-width: 680px; color: #f3dfb3; font-size: 20px; line-height: 1.75; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 38px; }
     .trust-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 46px; max-width: 660px; }
     .trust-item { padding: 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(255,255,255,.08); color: #f7e5bd; font-size: 14px; font-weight: 850; }
-
+ 
     .hero-card { position: relative; }
     .hero-card::before { content: ""; position: absolute; inset: 0; border-radius: 48px; background: rgba(244,185,47,.25); transform: rotate(3deg); }
     .showcase { position: relative; padding: 28px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 48px; background: var(--gold); box-shadow: 0 34px 80px rgba(0,0,0,.34); }
@@ -114,14 +114,14 @@
     .showcase-label { margin-top: 22px; padding: 20px; border-radius: 26px; background: rgba(43,25,9,.92); color: white; }
     .showcase-label small { color: var(--gold); font-weight: 950; text-transform: uppercase; letter-spacing: .22em; }
     .showcase-label p { margin-top: 8px; color: white; font-size: 24px; font-weight: 950; line-height: 1.15; }
-
+ 
     .quick-info { position: relative; z-index: 25; margin-top: -48px; }
     .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 16px; border: 1px solid #ead4a0; border-radius: 32px; background: var(--cream-2); box-shadow: var(--shadow); }
     .quick-card, .benefit-card, .product-card, .package-card, .faq-item, .review-card { border: 1px solid var(--line); background: white; box-shadow: 0 18px 45px rgba(92,58,13,.08); }
     .quick-card { padding: 24px; border-radius: 24px; }
     .icon-box { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 16px; border-radius: 16px; background: #fff0c7; color: #a2640d; font-size: 24px; }
     .quick-card h3 { font-size: 20px; margin-bottom: 8px; }
-
+ 
     .split-head { display: grid; grid-template-columns: .86fr 1.14fr; gap: 44px; align-items: end; margin-bottom: 56px; }
     .split-head p { font-size: 18px; line-height: 1.8; }
     .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -142,7 +142,7 @@
     .subtitle { color: #a2640d; font-weight: 850; }
     .price { white-space: nowrap; padding: 6px 12px; border-radius: 999px; background: #fff0c7; color: #744508; font-size: 14px; font-weight: 950; }
     .product-body p { margin-bottom: 24px; line-height: 1.75; }
-
+ 
     .story { position: relative; overflow: hidden; background: var(--dark-2); color: white; isolation: isolate; }
     .story-grid { position: relative; z-index: 2; display: grid; grid-template-columns: .95fr 1.05fr; gap: 52px; align-items: center; }
     .brand-visual { position: relative; overflow: hidden; padding: 32px; border: 1px solid rgba(255,255,255,.1); border-radius: 48px; background: var(--gold); box-shadow: 0 30px 80px rgba(0,0,0,.25); }
@@ -159,7 +159,7 @@
     .benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 38px; }
     .benefit-card { padding: 24px; border-color: rgba(255,255,255,.1); border-radius: 28px; background: rgba(255,255,255,.08); backdrop-filter: blur(14px); }
     .benefit-card h3 { color: white; font-size: 20px; margin-bottom: 10px; }
-
+ 
     .process-head { max-width: 760px; margin: 0 auto 64px; text-align: center; }
     .process-head p { margin-top: 18px; font-size: 18px; line-height: 1.8; }
     .timeline { position: relative; display: grid; gap: 28px; }
@@ -170,14 +170,14 @@
     .timeline-card { padding: 28px; border: 1px solid var(--line); border-radius: 30px; background: white; box-shadow: 0 18px 45px rgba(92,58,13,.08); }
     .timeline-title { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
     .number { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 18px; background: var(--dark); color: var(--gold); font-size: 20px; font-weight: 950; flex: 0 0 auto; }
-
+ 
     .packages { background: #f0ddb3; }
     .package-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .package-card { padding: 34px; border-radius: 32px; background: var(--cream-2); }
     .package-icon { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 34px; border-radius: 24px; background: var(--dark); color: var(--gold); font-size: 32px; }
     .amount { color: #a2640d; font-size: 13px; font-weight: 950; text-transform: uppercase; letter-spacing: .2em; margin-bottom: 10px; }
     .package-card h3 { font-size: 32px; margin-bottom: 16px; }
-
+ 
     .testimonial-card { overflow: hidden; border-radius: 44px; background: var(--dark); color: white; box-shadow: var(--shadow); }
     .testimonial-grid { display: grid; grid-template-columns: .9fr 1.1fr; }
     .testimonial-left { position: relative; padding: 56px; min-height: 420px; background: var(--dark); isolation: isolate; }
@@ -187,7 +187,7 @@
     .review-card { padding: 24px; border-radius: 26px; }
     .review-card p { color: var(--dark); font-size: 18px; font-weight: 800; line-height: 1.7; }
     .review-card small { display: block; margin-top: 16px; color: #a2640d; font-weight: 950; text-transform: uppercase; letter-spacing: .2em; }
-
+ 
     .faq { background: var(--cream-2); }
     .faq-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 52px; }
     .faq-list { display: grid; gap: 16px; }
@@ -197,7 +197,7 @@
     .faq-plus { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 999px; background: #fff0c7; color: #a2640d; font-weight: 950; transition: .2s ease; flex: 0 0 auto; }
     .faq-item[open] .faq-plus { transform: rotate(45deg); }
     .faq-item p { margin-top: 18px; line-height: 1.75; }
-
+ 
     .contact { position: relative; overflow: hidden; background: var(--dark-2); color: white; isolation: isolate; }
     .contact-panel { position: relative; z-index: 2; padding: 54px; border: 1px solid rgba(255,255,255,.1); border-radius: 44px; background: rgba(255,255,255,.08); box-shadow: 0 30px 90px rgba(0,0,0,.25); backdrop-filter: blur(14px); }
     .contact-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 48px; align-items: center; }
@@ -213,7 +213,7 @@
     .cta-actions { display: grid; gap: 12px; margin-top: 28px; }
     .cta-note { display: flex; align-items: center; gap: 10px; margin-top: 24px; color: #5c3a0d; font-size: 14px; font-weight: 850; }
     footer { padding: 30px 20px; background: #120a03; color: #cdb486; text-align: center; font-size: 14px; font-weight: 700; }
-
+ 
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
     @media (max-width: 1000px) {
       .hero { min-height: auto; }
@@ -309,13 +309,13 @@
       </div>
     </div>
   </header>
-
+ 
   <section class="quick-info"><div class="container"><div class="quick-grid">
     <article class="quick-card"><div class="icon-box">🍯</div><h3>Spremno za ponudu</h3><p>Proizvodi, cene i pakovanja na jednom mestu.</p></article>
     <article class="quick-card"><div class="icon-box">💬</div><h3>Laka porudžbina</h3><p>Kontakt preko telefona, Instagrama ili poruke.</p></article>
     <article class="quick-card"><div class="icon-box">🚚</div><h3>Dostava / preuzimanje</h3><p>Detalje prilagođavamo stvarnom načinu prodaje.</p></article>
   </div></div></section>
-
+ 
   <section id="ponuda" class="section"><div class="container">
     <div class="split-head"><div><div class="eyebrow">ponuda</div><h2>Tri glavna ukusa, jedan prepoznatljiv brend.</h2></div><p>Ovo su početne kartice proizvoda. Kasnije menjamo nazive, cene, gramaže i ubacujemo prave fotografije tegli.</p></div>
     <div class="product-grid">
@@ -324,24 +324,24 @@
       <article class="product-card"><div class="product-visual sumski"><div class="visual-pattern"></div><div class="product-top"><span class="product-badge">Premium ukus</span><span class="product-emoji">🌲</span></div><div class="mini-jar"><svg viewBox="0 0 320 150"><rect x="118" y="12" width="84" height="28" rx="9" fill="#2b1909"/><rect x="96" y="34" width="128" height="104" rx="34" fill="#fffaf0"/><path d="M96 86C132 58 169 124 224 82V118C183 146 141 111 96 128Z" fill="#b56d10"/><rect x="116" y="62" width="88" height="48" rx="16" fill="#2b1909"/><text x="160" y="83" text-anchor="middle" fill="#f4b92f" font-size="13" font-weight="900">PAVO</text><text x="160" y="101" text-anchor="middle" fill="#fff3cf" font-size="11" font-weight="800">MED</text></svg></div></div><div class="product-body"><div class="product-title-row"><div><h3>Šumski med</h3><div class="subtitle">Tamniji i intenzivniji</div></div><div class="price">od 1.000 RSD</div></div><p>Puniji, ozbiljniji ukus i tamnija nijansa. Za one koji vole jači karakter domaćeg meda.</p><a href="#kontakt" class="btn btn-dark">Pitaj za dostupnost →</a></div></article>
     </div>
   </div></section>
-
+ 
   <section id="prica" class="section story dark-pattern"><div class="container story-grid">
     <div class="brand-visual"><div class="brand-board"><div class="brand"><div class="logo-box">🐝</div><span class="pill-dark">Brand kit</span></div><h3>Pavo Med</h3><p>Vizuelni identitet baziran na zlatnoj nijansi meda, tamnom kontrastu i toplom domaćem osećaju.</p><div class="palette"><div class="swatch" style="background:#2b1909"></div><div class="swatch" style="background:#f4b92f"></div><div class="swatch" style="background:#fffaf0"></div><div class="swatch" style="background:#8a520e"></div></div><div class="tone-box"><small>Ton komunikacije</small><p>Prirodno. Pouzdano. Domaće.</p></div></div></div>
     <div><div class="eyebrow light">priča brenda</div><h2>Topao domaći osećaj, ali sa ozbiljnim nastupom.</h2><p style="margin-top:24px;font-size:18px;line-height:1.8">Redizajn je napravljen da Pavo Med deluje kao mali premium brend: uredno, prirodno, pouzdano i dovoljno elegantno za poklon ili porodičnu kupovinu.</p><p style="margin-top:16px;font-size:18px;line-height:1.8">Tekstovi su fleksibilni placeholder-i. Kada dobiješ prave informacije, ubacujemo tačnu priču, lokaciju, istoriju, cene i kontakt.</p><div class="benefit-grid"><article class="benefit-card"><div class="icon-box">🌿</div><h3>Prirodno poreklo</h3><p>Jasna komunikacija kvaliteta, porekla i pažnje koja stoji iza svake tegle.</p></article><article class="benefit-card"><div class="icon-box">🛡️</div><h3>Bez komplikovanja</h3><p>Kupac odmah vidi šta nudite, kako poručuje i zašto treba da vam veruje.</p></article><article class="benefit-card"><div class="icon-box">🏅</div><h3>Premium izgled</h3><p>Sajt izgleda kao pravi mali brend, ne samo kao obična stranica sa kontaktom.</p></article><article class="benefit-card"><div class="icon-box">🤝</div><h3>Lično poverenje</h3><p>Topao ton, domaća priča i jednostavna porudžbina grade bolji odnos sa kupcima.</p></article></div></div>
   </div></section>
-
+ 
   <section id="proces" class="section"><div class="container"><div class="process-head"><div class="eyebrow">proces</div><h2>Od košnice do kupca.</h2><p>Proces je prikazan kao premium timeline koji kupcu gradi poverenje pre prve porudžbine.</p></div><div class="timeline"><div class="timeline-item"><article class="timeline-card"><div class="timeline-title"><div class="number">01</div><h3>Košnice i priroda</h3></div><p>Pčele, okruženje i sezona su osnova svakog dobrog meda.</p></article></div><div class="timeline-item"><article class="timeline-card"><div class="timeline-title"><div class="number">02</div><h3>Pažljivo prikupljanje</h3></div><p>Med se priprema tako da zadrži prirodan ukus, boju i teksturu.</p></article></div><div class="timeline-item"><article class="timeline-card"><div class="timeline-title"><div class="number">03</div><h3>Punjenje tegli</h3></div><p>Svaka tegla treba da izgleda uredno, čisto i spremno za kupca ili poklon.</p></article></div><div class="timeline-item"><article class="timeline-card"><div class="timeline-title"><div class="number">04</div><h3>Porudžbina i dostava</h3></div><p>Kupac bira vrstu meda, javlja se porukom i dogovara preuzimanje ili slanje.</p></article></div></div></div></section>
-
+ 
   <section id="pakovanja" class="section packages"><div class="container"><div class="split-head"><div><div class="eyebrow">pakovanja</div><h2>Za kuću, poklon ili veću porudžbinu.</h2></div><p>Ova sekcija daje sajtu komercijalni deo bez komplikovanog webshop-a.</p></div><div class="package-grid"><article class="package-card"><div class="package-icon">🍯</div><div class="amount">250g</div><h3>Mala tegla</h3><p>Za probu, poklon ili manje domaćinstvo.</p></article><article class="package-card"><div class="package-icon">🍯</div><div class="amount">500g / 720g</div><h3>Porodična tegla</h3><p>Najpraktičniji izbor za svakodnevnu upotrebu.</p></article><article class="package-card"><div class="package-icon">🎁</div><div class="amount">custom</div><h3>Poklon paket</h3><p>Lepo pakovanje za slave, praznike i male znakove pažnje.</p></article></div></div></section>
-
+ 
   <section class="section testimonial"><div class="container"><div class="testimonial-card"><div class="testimonial-grid"><div class="testimonial-left dark-pattern"><div class="eyebrow light">utisak kupaca</div><h2>Sajt treba da prodaje poverenje pre prve poruke.</h2><div class="stars">★ ★ ★ ★ ★</div></div><div class="testimonial-right"><div class="review-list"><article class="review-card"><p>“Med ima pravi domaći ukus i deluje uredno upakovano.”</p><small>Kupac 1</small></article><article class="review-card"><p>“Odličan izbor za poklon jer izgleda lepše od obične tegle meda.”</p><small>Kupac 2</small></article><article class="review-card"><p>“Jednostavno je poručiti, a sve informacije su jasne.”</p><small>Kupac 3</small></article></div></div></div></div></div></section>
-
+ 
   <section class="section faq"><div class="container faq-grid"><div><div class="eyebrow">faq</div><h2>Pitanja pre porudžbine.</h2><p style="margin-top:18px;font-size:18px;line-height:1.8">Sve odgovore kasnije menjamo prema realnom načinu prodaje.</p></div><div class="faq-list"><details class="faq-item"><summary>Kako mogu da poručim? <span class="faq-plus">+</span></summary><p>Najlakše telefonom, Instagram porukom ili preko WhatsApp/Viber kontakta. Kasnije možemo dodati pravu online formu.</p></details><details class="faq-item"><summary>Da li su cene finalne? <span class="faq-plus">+</span></summary><p>Trenutno su cene placeholder. Kada pošalješ tačne cene i gramaže, ubacićemo realan cenovnik.</p></details><details class="faq-item"><summary>Da li postoji dostava? <span class="faq-plus">+</span></summary><p>Ovo ćemo prilagoditi realnoj prodaji: lokalna dostava, lično preuzimanje ili slanje brzom poštom.</p></details><details class="faq-item"><summary>Da li mogu da kupim kao poklon? <span class="faq-plus">+</span></summary><p>Da, sekcija poklon paketa je već pripremljena i možemo je proširiti posebnim paketima, trakicama i karticama.</p></details></div></div></section>
-
+ 
   <section id="kontakt" class="section contact dark-pattern"><div class="container"><div class="contact-panel"><div class="contact-grid"><div><div class="eyebrow light">kontakt</div><h2>Spreman za porudžbine.</h2><p style="margin-top:22px;font-size:18px;line-height:1.8">Ostaju placeholder kontakti dok ne pošalješ prave podatke. Posle ubacujemo broj, Instagram, email, lokaciju i način dostave.</p><div class="contact-info"><div class="contact-card"><div class="contact-card-inner"><div class="icon-box">☎</div><div><strong>Telefon</strong><span>+381 60 000 0000</span></div></div></div><div class="contact-card"><div class="contact-card-inner"><div class="icon-box">◎</div><div><strong>Instagram</strong><span>@pavomed</span></div></div></div><div class="contact-card"><div class="contact-card-inner"><div class="icon-box">✉</div><div><strong>Email</strong><span>kontakt@pavomed.rs</span></div></div></div><div class="contact-card"><div class="contact-card-inner"><div class="icon-box">⌖</div><div><strong>Lokacija</strong><span>Srbija</span></div></div></div></div></div><div class="contact-cta"><div class="bee-box">🐝</div><h3>Pošalji poruku i proveri dostupnost.</h3><p>Najbolji CTA za mali biznis je jednostavan: kupac vidi ponudu, klikne kontakt i odmah pita za dostupnost.</p><div class="cta-actions"><a href="tel:+381600000000" class="btn btn-dark">Pozovi sada</a><a href="https://instagram.com/" class="btn" style="background:rgba(255,255,255,.45);border-color:#d69d23;color:#241508">Instagram poruka</a></div><div class="cta-note">⏱ Odgovor u najkraćem roku</div></div></div></div></div></section>
-
+ 
   <footer>© 2026 Pavo Med. Sva prava zadržana. Premium koncept sajta za prodaju domaćeg meda.</footer>
-
+ 
   <script>
     (function () {
       const menuButton = document.getElementById('menuButton');
