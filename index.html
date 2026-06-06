@@ -343,12 +343,41 @@
     /* ---------------- ORDER DRAWER ---------------- */
     .drawer-overlay { position: fixed; inset: 0; z-index: 90; background: rgba(20,12,6,.55); backdrop-filter: blur(4px); opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; }
     .drawer-overlay.open { opacity: 1; visibility: visible; }
-    .drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 91; width: min(440px, 100%); background: var(--cream-2); box-shadow: -20px 0 80px rgba(0,0,0,.3); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); }
-    .drawer.open { transform: translateX(0); }
-    .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 24px 24px 18px; border-bottom: 1.5px solid var(--line); }
-    .drawer-head h3 { font-size: 24px; }
-    .drawer-close { width: 42px; height: 42px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; transition: background .2s ease; }
-    .drawer-close:hover { background: #fff1cf; }
+    .drawer {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 91; width: min(440px, 100%);
+      background: var(--cream-2); box-shadow: -20px 0 80px rgba(0,0,0,.32);
+      display: flex; flex-direction: column; overflow: hidden;
+      border-radius: 30px 0 0 30px; border-left: 2px solid rgba(255,255,255,.6);
+      transform: scale(.04); opacity: 0; transform-origin: 50% 52px;
+      visibility: hidden; pointer-events: none; will-change: transform, opacity;
+      transition: transform .52s cubic-bezier(.34,1.12,.52,1), opacity .34s ease, visibility 0s linear .52s;
+    }
+    .drawer.open { transform: scale(1); opacity: 1; visibility: visible; pointer-events: auto; transition: transform .52s cubic-bezier(.34,1.12,.52,1), opacity .34s ease, visibility 0s linear 0s; }
+    /* glass sheen */
+    .drawer::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 54px; z-index: 9; pointer-events: none; background: linear-gradient(90deg, rgba(255,255,255,.22), transparent); }
+    /* content fade during pour */
+    .drawer-head, .drawer-body, .drawer-foot { transition: opacity .4s ease; }
+    .drawer.filling .drawer-head, .drawer.filling .drawer-body, .drawer.filling .drawer-foot { opacity: 0; }
+
+    /* jar lid */
+    .drawer-head { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 26px 24px 18px; background: var(--ink); color: #fff; border-radius: 28px 0 0 0; }
+    .drawer-head::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 11px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.16) 0 5px, rgba(0,0,0,.2) 5px 10px); }
+    .drawer-head h3 { font-size: 23px; color: #fff; }
+    .drawer-close { width: 42px; height: 42px; border-radius: 14px; border: 1.5px solid rgba(255,255,255,.28); background: rgba(255,255,255,.12); color: #fff; font-size: 20px; cursor: pointer; transition: background .2s ease; }
+    .drawer-close:hover { background: rgba(255,255,255,.24); }
+
+    /* honey drop */
+    .honey-drop { position: fixed; z-index: 96; width: 30px; height: 38px; pointer-events: none; opacity: 0; will-change: transform, opacity; filter: drop-shadow(0 7px 9px rgba(150,86,12,.45)); }
+    .honey-drop svg { width: 100%; height: 100%; display: block; }
+
+    /* honey pour fill */
+    .honey-pour { position: absolute; inset: 0; z-index: 8; pointer-events: none; overflow: hidden; opacity: 1; transition: opacity .45s ease; }
+    .honey-pour[hidden] { display: none; }
+    .honey-pour.drain { opacity: 0; }
+    .honey-liquid { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: linear-gradient(180deg, #ffd06b, #e8a317 48%, #c1742c); transition: height .55s cubic-bezier(.4,0,.2,1); box-shadow: 0 -6px 24px rgba(184,101,29,.35); }
+    .honey-pour.pouring .honey-liquid { height: 135%; }
+    .honey-liquid::before { content: ""; position: absolute; left: 0; right: 0; top: -11px; height: 14px; background: radial-gradient(circle at 11px 12px, #ffd06b 9px, transparent 10px) repeat-x; background-size: 22px 14px; }
+    .honey-liquid::after { content: "🍯"; position: absolute; top: 14px; left: 50%; transform: translateX(-50%); font-size: 40px; opacity: .9; filter: drop-shadow(0 6px 8px rgba(0,0,0,.2)); }
     .drawer-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
     .drawer-empty { text-align: center; padding: 48px 12px; color: var(--brown); }
     .drawer-empty .big { font-size: 54px; }
@@ -553,9 +582,15 @@
 
   <footer><span class="fsig">hvala što kupujete domaće</span>© <span id="year">2026</span> Pavo Med. Sva prava zadržana. Domaći med, pažljivo punjen.</footer>
 
+  <!-- Honey drop (falls from cart button) -->
+  <div class="honey-drop" id="honeyDrop" aria-hidden="true">
+    <svg viewBox="0 0 30 38"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd877"/><stop offset="0.55" stop-color="#f0a500"/><stop offset="1" stop-color="#c1742c"/></linearGradient></defs><path d="M15 1C15 1 27 18 27 27a12 12 0 0 1-24 0C3 18 15 1 15 1Z" fill="url(#hg)"/><ellipse cx="11" cy="22" rx="3.4" ry="5" fill="#fff" opacity="0.45"/></svg>
+  </div>
+
   <!-- Order drawer -->
   <div class="drawer-overlay" id="drawerOverlay" hidden></div>
   <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Vaša porudžbina" aria-hidden="true">
+    <div class="honey-pour" id="honeyPour" hidden aria-hidden="true"><span class="honey-liquid"></span></div>
     <div class="drawer-head">
       <h3>Vaša porudžbina</h3>
       <button class="drawer-close" id="drawerClose" aria-label="Zatvori porudžbinu">✕</button>
@@ -706,24 +741,110 @@
       var drawer = document.getElementById('drawer');
       var overlay = document.getElementById('drawerOverlay');
       var drawerClose = document.getElementById('drawerClose');
+      var honeyDrop = document.getElementById('honeyDrop');
+      var honeyPour = document.getElementById('honeyPour');
       var lastFocus = null;
+      var isOpen = false;
+      var timers = [];
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      function openDrawer() {
-        lastFocus = document.activeElement;
+      function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+      function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+
+      function showDrawerBox() {
         overlay.hidden = false;
         requestAnimationFrame(function () { overlay.classList.add('open'); drawer.classList.add('open'); });
         drawer.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-        closeMenu();
       }
+
+      /* Drop falls from the cart button toward the jar lid */
+      function playDrop(reverse, onImpact) {
+        var c = cartBtn.getBoundingClientRect();
+        var startX = c.left + c.width / 2 - 15;
+        var startY = c.bottom - 6;
+        var drawerLeft = window.innerWidth - drawer.offsetWidth;
+        var targetX = drawerLeft + drawer.offsetWidth / 2 - 15;
+        var targetY = 54;
+        var fromX = reverse ? targetX : startX;
+        var fromY = reverse ? targetY : startY;
+        var dx = (reverse ? startX : targetX) - fromX;
+        var dy = (reverse ? startY : targetY) - fromY;
+
+        honeyDrop.style.left = fromX + 'px';
+        honeyDrop.style.top = fromY + 'px';
+
+        var frames = [
+          { transform: 'translate(0,0) scale(.5)', opacity: 0, offset: 0 },
+          { transform: 'translate(' + (dx * 0.28) + 'px,' + (dy * 0.16) + 'px) scale(1)', opacity: 1, offset: 0.2 },
+          { transform: 'translate(' + (dx * 0.86) + 'px,' + (dy * 0.84) + 'px) scaleX(.78) scaleY(1.38)', opacity: 1, offset: 0.8 },
+          { transform: 'translate(' + dx + 'px,' + dy + 'px) scaleX(1.35) scaleY(.55)', opacity: 1, offset: 0.93 },
+          { transform: 'translate(' + dx + 'px,' + (dy + 6) + 'px) scale(1.1)', opacity: 0, offset: 1 }
+        ];
+        var anim = honeyDrop.animate(frames, { duration: 640, easing: 'cubic-bezier(.5,0,.75,.35)', fill: 'forwards' });
+        if (onImpact) later(onImpact, 430);
+        anim.onfinish = function () { honeyDrop.style.opacity = 0; };
+      }
+
+      function openDrawer() {
+        if (isOpen) return;
+        isOpen = true;
+        clearTimers();
+        lastFocus = document.activeElement;
+        closeMenu();
+
+        if (reduceMotion) {
+          honeyPour.hidden = true;
+          showDrawerBox();
+          return;
+        }
+
+        /* prep pour overlay */
+        honeyPour.hidden = false;
+        honeyPour.classList.remove('pouring', 'drain');
+        drawer.classList.add('filling');
+
+        playDrop(false, function () {
+          showDrawerBox();
+          requestAnimationFrame(function () { honeyPour.classList.add('pouring'); });
+          later(function () {
+            honeyPour.classList.add('drain');     /* honey settles, content revealed */
+            drawer.classList.remove('filling');
+          }, 560);
+          later(function () { honeyPour.hidden = true; }, 1050);
+        });
+      }
+
       function closeDrawer() {
-        overlay.classList.remove('open'); drawer.classList.remove('open');
-        drawer.setAttribute('aria-hidden', 'true');
+        if (!isOpen) return;
+        isOpen = false;
+        clearTimers();
         document.body.style.overflow = '';
-        setTimeout(function () { overlay.hidden = true; }, 350);
+
+        if (reduceMotion) {
+          overlay.classList.remove('open'); drawer.classList.remove('open');
+          drawer.setAttribute('aria-hidden', 'true');
+          later(function () { overlay.hidden = true; }, 300);
+          if (lastFocus) lastFocus.focus();
+          return;
+        }
+
+        drawer.classList.add('filling');         /* fade content out */
+        overlay.classList.remove('open');
+        later(function () {
+          drawer.classList.remove('open');        /* jar shrinks back into the drop */
+          playDrop(true);                         /* drop flies back to cart button */
+        }, 140);
+        later(function () {
+          overlay.hidden = true;
+          drawer.setAttribute('aria-hidden', 'true');
+          drawer.classList.remove('filling');
+          honeyPour.hidden = true;
+          honeyPour.classList.remove('pouring', 'drain');
+        }, 720);
         if (lastFocus) lastFocus.focus();
       }
-      cartBtn.addEventListener('click', openDrawer);
+      cartBtn.addEventListener('click', function () { isOpen ? closeDrawer() : openDrawer(); });
       drawerClose.addEventListener('click', closeDrawer);
       overlay.addEventListener('click', closeDrawer);
       document.getElementById('openOrderCta').addEventListener('click', openDrawer);
