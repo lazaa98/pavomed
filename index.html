@@ -75,7 +75,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--cream);
@@ -150,8 +150,9 @@
       content: ""; position: absolute; inset: 0; z-index: 0; opacity: .16; pointer-events: none;
       background-image: var(--hex); background-size: 56px 100px;
     }
-    .site-header { position: sticky; top: 0; z-index: 60; transition: background .3s ease, box-shadow .3s ease; }
-    .site-header.scrolled { background: rgba(24,16,10,.9); backdrop-filter: blur(16px); box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 70; transition: background .3s ease, box-shadow .3s ease, padding .3s ease; }
+    .site-header.scrolled { background: rgba(24,16,10,.92); backdrop-filter: blur(16px); box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+    .site-header.scrolled .nav { padding: 12px 0; }
     .nav { position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
     .brand { display: flex; align-items: center; gap: 13px; }
     .logo-box { width: 56px; height: 56px; display: grid; place-items: center; background: var(--gold); box-shadow: 0 14px 32px rgba(0,0,0,.3); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
@@ -175,7 +176,7 @@
     .mobile-menu a { padding: 12px; color: #f6e6bf; font-weight: 700; border-radius: 14px; }
     .mobile-menu a:hover { background: rgba(255,255,255,.12); }
 
-    .hero-grid { position: relative; z-index: 10; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; padding: 76px 0 140px; }
+    .hero-grid { position: relative; z-index: 10; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; padding: 120px 0 140px; }
     .hero-badge { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px; padding: 9px 17px; border: 1px solid rgba(244,185,47,.34); border-radius: 999px; background: rgba(244,185,47,.1); color: #ffe4a1; font-size: 14px; font-weight: 700; }
     .hero h1 { color: #fff; }
     .hero-text { margin-top: 30px; max-width: 660px; color: #f0ddb0; font-size: 20px; line-height: 1.75; }
@@ -393,7 +394,7 @@
       h1 { font-size: clamp(42px, 12vw, 66px); }
       h2 { font-size: clamp(32px, 10vw, 48px); }
       .section { padding: 80px 0; }
-      .hero-grid { padding: 44px 0 110px; }
+      .hero-grid { padding: 104px 0 100px; }
       .hero-actions { display: grid; }
       .trust-row, .benefit-grid, .contact-info { grid-template-columns: 1fr; }
       .product-title-row { flex-direction: column; }
@@ -414,10 +415,9 @@
 <body>
   <a href="#ponuda" class="skip-link" style="position:absolute;left:-9999px;top:0;background:var(--gold);color:var(--ink);padding:12px 18px;border-radius:0 0 12px 0;font-weight:900;z-index:200;" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Preskoči na ponudu</a>
 
-  <header id="top" class="hero">
-    <div class="site-header" id="siteHeader">
-      <div class="container">
-        <nav class="nav">
+  <div class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="nav">
           <a href="#top" class="brand" aria-label="Pavo Med početna">
             <div class="logo-box" aria-hidden="true">
               <svg viewBox="0 0 64 64" width="42" height="42">
@@ -440,11 +440,13 @@
             <button class="mobile-menu-button" id="menuButton" aria-label="Otvori meni" aria-expanded="false">☰</button>
           </div>
         </nav>
-        <div class="mobile-menu" id="mobileMenu">
-          <a href="#ponuda">Ponuda</a><a href="#prica">Priča</a><a href="#proces">Proces</a><a href="#pakovanja">Pakovanja</a><a href="#kontakt">Kontakt</a>
-        </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#ponuda">Ponuda</a><a href="#prica">Priča</a><a href="#proces">Proces</a><a href="#pakovanja">Pakovanja</a><a href="#kontakt">Kontakt</a>
       </div>
     </div>
+  </div>
+
+  <header id="top" class="hero">
     <div class="container">
       <div class="hero-grid">
         <div>
